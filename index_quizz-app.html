@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title></title>
-awdawd
+  <title>Quizz App</title>
+
   <!-- bootstrap files -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
@@ -30,36 +30,23 @@ awdawd
     </div>
   </nav>
 
-  <div id="endscreen" class="card-body d-none">
-
-  </div>
-
-  <div class="card-body">
-    <h5 id="question-container" class="card-title"></h5>
-    <div class="card" style="border: none">
-      <div class="card mb-2 quiz-answer">
-        <div onclick="answer('answer-1')" id="answer-1" class="card-body"></div>
+  <div id="endscreen" class="card-container d-none">
+    <div class="card" style="width: 35rem">
+      <img src="./img/cup.png" class="card-img-top" alt="card_background_img" />
+      <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0"
+        aria-valuemax="100">
+        <div class="progress-bar" style="width: 100%">100%</div>
       </div>
-      <div class="card mb-2 quiz-answer">
-        <div onclick="answer('answer-2')" id="answer-2" class="card-body"></div>
-      </div>
-      <div class="card mb-2 quiz-answer">
-        <div onclick="answer('answer-3')" id="answer-3" class="card-body"></div>
-      </div>
-      <div class="card mb-2 quiz-answer">
-        <div onclick="answer('answer-4')" id="answer-4" class="card-body"></div>
+      <div class="card-body">
+        <h5 class="card-title">Quiz beendet!</h5>
+        <div class="card" style="border: none">
+        </div>
+        <div class="class-footer">
+          <div>Du hast <b id="correct-questions"></b> von <b id="max-questions"></b> Fragen richtig beantwortet.
+          </div>
+        </div>
       </div>
     </div>
-    <div class="class-footer">
-      <div>
-        <b id="current-question-number">1</b> von
-        <b id="max-number"></b> Fragen
-      </div>
-      <div>
-      </div>
-    </div>
-  </div>
-  </div>
   </div>
 
   <div id="question-card" class="card-container">

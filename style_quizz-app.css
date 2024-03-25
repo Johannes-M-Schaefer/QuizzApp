@@ -38,28 +38,15 @@ body {
 }
 
 .text-endscreen {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin: 8px 0;
-    align-items: center;
-    gap: 8px;
 }
 
 #endscreen {
-    height: 80vh;
-    width: 80vw;
-    margin-left: 10vw;
-    background-color: lightgreen;
-    margin-top: 5vh;
-    border-radius: 9px;
 }
 
-.card-img-top-endscreen {
-    margin-top: 15vh;
-    border-bottom: 2px solid;
-    border-radius: 50px;
-    border-top: solid 2px;
+.card-img-top {
+    height: 50vh;
+    align-items: center;
+    object-fit: cover;
 }
 
 .progress {
