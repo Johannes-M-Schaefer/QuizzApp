@@ -71,7 +71,7 @@ function showQuestion() {
        document.getElementById('endscreen').classList.remove('d-none');
     } else {
         let progressId = document.getElementById('progress-bar');
-        let percent = currentQuestion / questions.length;
+        let percent = (currentQuestion + 1) / questions.length;
         percent = Math.round(percent * 100);
         console.log(percent);
 
