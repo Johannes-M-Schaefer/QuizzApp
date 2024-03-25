@@ -60,5 +60,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap: 16px;
+}
 
+.button-restart {
+    display: flex;
+    justify-content: center;
 }

@@ -126,3 +126,11 @@ function resetAnswerButtons() {
     document.getElementById('answer-4').parentNode.classList.remove('bg-danger');
     document.getElementById('answer-4').parentNode.classList.remove('bg-success');
 }
+
+function restartGame() {
+    document.getElementById('question-card').classList.remove('d-none');
+    document.getElementById('endscreen').classList.add('d-none');
+    currentQuestion = 0;
+    rightQuestions = 0;
+    init();
+}
