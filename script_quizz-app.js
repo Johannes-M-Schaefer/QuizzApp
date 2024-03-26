@@ -43,6 +43,8 @@ let questions = [
 
 let currentQuestion = 0;
 let rightQuestions = 0;
+let success = new Audio('sounds/win.mp3');
+let fail = new Audio('sounds/wrong.mp3');
 
 function init() {
     let contentMaxNumber = document.getElementById('max-number');
@@ -78,7 +80,7 @@ function showQuestion() {
         progressId.innerHTML = `${percent} %`;
         progressId.style.width = `${percent}%`;
         
-        
+        contentAnswers();
         let question = questions[currentQuestion];
         document.getElementById('question-container').innerHTML = question['question'];
         document.getElementById('answer-1').innerHTML = question['answer 1'];
@@ -86,6 +88,15 @@ function showQuestion() {
         document.getElementById('answer-3').innerHTML = question['answer 3'];
         document.getElementById('answer-4').innerHTML = question['answer 4'];
     }
+}
+
+function contentAnswers() {
+    let question = questions[currentQuestion];
+    document.getElementById('question-container').innerHTML = question['question'];
+    document.getElementById('answer-1').innerHTML = question['answer 1'];
+    document.getElementById('answer-2').innerHTML = question['answer 2'];
+    document.getElementById('answer-3').innerHTML = question['answer 3'];
+    document.getElementById('answer-4').innerHTML = question['answer 4'];
 }
 
 function answer(selection) {
@@ -98,11 +109,12 @@ function answer(selection) {
     if (selectedNumber == rightAnswerNumber) {
         selectionContainer.parentNode.classList.add('bg-success');
         rightQuestions += +1;
-
+        success.play();
     } else {
         console.log(rightAnswerContainer);
         selectionContainer.parentNode.classList.add('bg-danger');
         rightAnswerContainer.parentNode.classList.add('bg-success');
+        fail.play();
     }
     nextButton.disabled = false;
 }
