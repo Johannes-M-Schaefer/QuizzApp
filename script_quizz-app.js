@@ -47,14 +47,17 @@ let success = new Audio('sounds/win.mp3');
 let fail = new Audio('sounds/wrong.mp3');
 
 function init() {
+    updateNumber();
+    showQuestion();
+}
+
+function updateNumber() {
     let contentMaxNumber = document.getElementById('max-number');
     let contentCurrentNumber = document.getElementById('current-question-number');
     let currentQuestionNumber = currentQuestion + 1;
 
     contentMaxNumber.innerHTML = questions.length;
     contentCurrentNumber.innerHTML = currentQuestionNumber;
-
-    showQuestion();
 }
 
 function addCorrectQuestions() {
@@ -66,28 +69,27 @@ function addCorrectQuestions() {
 }
 
 function showQuestion() {
-
     if (currentQuestion >= questions.length) {
         addCorrectQuestions();
-       document.getElementById('question-card').classList.add('d-none');
-       document.getElementById('endscreen').classList.remove('d-none');
+        showEndscreen()
     } else {
-        let progressId = document.getElementById('progress-bar');
-        let percent = (currentQuestion + 1) / questions.length;
-        percent = Math.round(percent * 100);
-        console.log(percent);
-
-        progressId.innerHTML = `${percent} %`;
-        progressId.style.width = `${percent}%`;
-        
+        updateProgressBar();
         contentAnswers();
-        let question = questions[currentQuestion];
-        document.getElementById('question-container').innerHTML = question['question'];
-        document.getElementById('answer-1').innerHTML = question['answer 1'];
-        document.getElementById('answer-2').innerHTML = question['answer 2'];
-        document.getElementById('answer-3').innerHTML = question['answer 3'];
-        document.getElementById('answer-4').innerHTML = question['answer 4'];
     }
+}
+
+function showEndscreen() {
+    document.getElementById('question-card').classList.add('d-none');
+    document.getElementById('endscreen').classList.remove('d-none');
+}
+
+function updateProgressBar() {
+    let progressId = document.getElementById('progress-bar');
+    let percent = (currentQuestion + 1) / questions.length;
+    percent = Math.round(percent * 100);
+
+    progressId.innerHTML = `${percent} %`;
+    progressId.style.width = `${percent}%`;
 }
 
 function contentAnswers() {
@@ -111,7 +113,6 @@ function answer(selection) {
         rightQuestions += +1;
         success.play();
     } else {
-        console.log(rightAnswerContainer);
         selectionContainer.parentNode.classList.add('bg-danger');
         rightAnswerContainer.parentNode.classList.add('bg-success');
         fail.play();
